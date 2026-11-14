@@ -28,7 +28,8 @@
                 "mp4Save": true
             },
             "pngImage": "/assets/png/10 Sem Título2.png",
-            "miniImage": "/assets/png/10 Sem Título2.png"
+            "jpgImage": "/assets/jpg/10 Sem Título2.jpg",
+            "miniImage": "/assets/mini/10 Sem Título2.jpg"
         },
         {
             "id": "i0014",
@@ -58,7 +59,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/14 Sem Título2.png",
-            "miniImage": "/assets/png/14 Sem Título2.png"
+            "jpgImage": "/assets/jpg/14 Sem Título2.jpg",
+            "miniImage": "/assets/mini/14 Sem Título2.jpg"
         },
         {
             "id": "i0034",
@@ -89,7 +91,8 @@
                 "mp4Save": true
             },
             "pngImage": "34 Sem Título.png",
-            "miniImage": "34 Sem Título.png"
+            "jpgImage": "/assets/jpg/34 Sem Título.jpg",
+            "miniImage": "/assets/mini/34 Sem Título.jpg"
         },
         {
             "id": "i0041",
@@ -119,7 +122,8 @@
                 "mp4Save": true
             },
             "pngImage": "/assets/png/41 Sem Título.png",
-            "miniImage": "/assets/png/41 Sem Título.png"
+            "jpgImage": "/assets/jpg/41 Sem Título.jpg",
+            "miniImage": "/assets/mini/41 Sem Título.jpg"
         },
         {
             "id": "i0136",
@@ -149,7 +153,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/136 Sem Título2.png",
-            "miniImage": "/assets/png/136 Sem Título2.png"
+            "jpgImage": "/assets/jpg/136 Sem Título2.jpg",
+            "miniImage": "/assets/mini/136 Sem Título2.jpg"
         },
         {
             "id": "i0141",
@@ -178,7 +183,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/141 Sem Título2.png",
-            "miniImage": "/assets/png/141 Sem Título2.png"
+            "jpgImage": "/assets/jpg/141 Sem Título2.jpg",
+            "miniImage": "/assets/mini/141 Sem Título2.jpg"
         },
         {
             "id": "i0153",
@@ -206,7 +212,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/153 Sem Título2.png",
-            "miniImage": "/assets/png/153 Sem Título2.png"
+            "jpgImage": "/assets/jpg/153 Sem Título2.jpg",
+            "miniImage": "/assets/mini/153 Sem Título2.jpg"
         },
         {
             "id": "i0164",
@@ -234,7 +241,8 @@
                 "mp4Save": true
             },
             "pngImage": "/assets/png/164 Sem Título.png",
-            "miniImage": "/assets/png/164 Sem Título.png"
+            "jpgImage": "/assets/jpg/164 Sem Título.jpg",
+            "miniImage": "/assets/mini/164 Sem Título.jpg"
         },
         {
             "id": "i0168",
@@ -262,7 +270,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/168 Sem Título.png",
-            "miniImage": "/assets/png/168 Sem Título.png"
+            "jpgImage": "/assets/jpg/168 Sem Título.jpg",
+            "miniImage": "/assets/mini/168 Sem Título.jpg"
         },
         {
             "id": "i0175",
@@ -293,7 +302,8 @@
                 "mp4Save": true
             },
             "pngImage": "/assets/png/175 Sem Título2.png",
-            "miniImage": "/assets/png/175 Sem Título2.png"
+            "jpgImage": "/assets/jpg/175 Sem Título2.jpg",
+            "miniImage": "/assets/mini/175 Sem Título2.jpg"
         },
         {
             "id": "i0177",
@@ -321,7 +331,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/177 Sem Título.png",
-            "miniImage": "/assets/png/177 Sem Título.png"
+            "jpgImage": "/assets/jpg/177 Sem Título.jpg",
+            "miniImage": "/assets/mini/177 Sem Título.jpg"
         },
         {
             "id": "i0178",
@@ -350,7 +361,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/178 Sem Título.png",
-            "miniImage": "/assets/png/178 Sem Título.png"
+            "jpgImage": "/assets/jpg/178 Sem Título.jpg",
+            "miniImage": "/assets/mini/178 Sem Título.jpg"
         },
         {
             "id": "i0260",
@@ -380,7 +392,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/260 Sem Título3.png",
-            "miniImage": "/assets/png/260 Sem Título3.png"
+            "jpgImage": "/assets/jpg/260 Sem Título3.jpg",
+            "miniImage": "/assets/mini/260 Sem Título3.jpg"
         },
         {
             "id": "i0285",
@@ -409,7 +422,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/285 Sem Título.png",
-            "miniImage": "/assets/png/285 Sem Título.png"
+            "jpgImage": "/assets/jpg/285 Sem Título.jpg",
+            "miniImage": "/assets/mini/285 Sem Título.jpg"
         },
         {
             "id": "i0291",
@@ -439,7 +453,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/291 Sem Título.png",
-            "miniImage": "/assets/png/291 Sem Título.png"
+            "jpgImage": "/assets/jpg/291 Sem Título.jpg",
+            "miniImage": "/assets/mini/291 Sem Título.jpg"
         },
         {
             "id": "i0463",
@@ -469,7 +484,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/463 Sem Título.png",
-            "miniImage": "/assets/png/463 Sem Título.png"
+            "jpgImage": "/assets/jpg/463 Sem Título.jpg",
+            "miniImage": "/assets/mini/463 Sem Título.jpg"
         },
         {
             "id": "i0545",
@@ -499,7 +515,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/545 Sem Título2.png",
-            "miniImage": "/assets/png/545 Sem Título2.png"
+            "jpgImage": "/assets/jpg/545 Sem Título2.jpg",
+            "miniImage": "/assets/mini/545 Sem Título2.jpg"
         },
         {
             "id": "ismb",
@@ -529,7 +546,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/Super Mário Bros.png",
-            "miniImage": "/assets/png/Super Mário Bros.png"
+            "jpgImage": "/assets/jpg/Super Mário Bros.jpg",
+            "miniImage": "/assets/mini/Super Mário Bros.jpg"
         },
         {
             "id": "i0489",
@@ -559,7 +577,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/489 Sem Título.png",
-            "miniImage": "/assets/png/489 Sem Título.png"
+            "jpgImage": "/assets/jpg/489 Sem Título.jpg",
+            "miniImage": "/assets/mini/489 Sem Título.jpg"
         },
         {
             "id": "i0493",
@@ -589,7 +608,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/493 Sem Título.png",
-            "miniImage": "/assets/png/493 Sem Título.png"
+            "jpgImage": "/assets/jpg/493 Sem Título.jpg",
+            "miniImage": "/assets/mini/493 Sem Título.jpg"
         },
         {
             "id": "i0440",
@@ -619,7 +639,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/440 Sem Título.png",
-            "miniImage": "/assets/png/440 Sem Título.png"
+            "jpgImage": "/assets/jpg/440 Sem Título.jpg",
+            "miniImage": "/assets/mini/440 Sem Título.jpg"
         },
         {
             "id": "i0414",
@@ -650,7 +671,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/414 Sem Título.png",
-            "miniImage": "/assets/png/414 Sem Título.png"
+            "jpgImage": "/assets/jpg/414 Sem Título.jpg",
+            "miniImage": "/assets/mini/414 Sem Título.jpg"
         },
         {
             "id": "i0431",
@@ -679,7 +701,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/431 Sem Título.png",
-            "miniImage": "/assets/png/431 Sem Título.png"
+            "jpgImage": "/assets/jpg/431 Sem Título.jpg",
+            "miniImage": "/assets/mini/431 Sem Título.jpg"
         },
         {
             "id": "i0424",
@@ -708,7 +731,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/424 Sem Título.png",
-            "miniImage": "/assets/png/424 Sem Título.png"
+            "jpgImage": "/assets/jpg/424 Sem Título.jpg",
+            "miniImage": "/assets/mini/424 Sem Título.jpg"
         },
         {
             "id": "i0309",
@@ -737,7 +761,8 @@
                 "mp4Save": true
             },
             "pngImage": "/assets/png/309 Sem Título2.png",
-            "miniImage": "/assets/png/309 Sem Título2.png"
+            "jpgImage": "/assets/jpg/309 Sem Título2.jpg",
+            "miniImage": "/assets/mini/309 Sem Título2.jpg"
         },
         {
             "id": "ihqpt1",
@@ -767,7 +792,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/HQ parte 1.png",
-            "miniImage": "/assets/png/HQ parte 1.png"
+            "jpgImage": "/assets/jpg/HQ parte 1.jpg",
+            "miniImage": "/assets/mini/HQ parte 1.jpg"
         },
         {
             "id": "ihqpt2",
@@ -797,7 +823,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/HQ parte 2.png",
-            "miniImage": "/assets/png/HQ parte 2.png"
+            "jpgImage": "/assets/jpg/HQ parte 2.jpg",
+            "miniImage": "/assets/mini/HQ parte 2.jpg"
         },
         {
             "id": "ihqpt3",
@@ -827,7 +854,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/HQ parte 3.png",
-            "miniImage": "/assets/png/HQ parte 3.png"
+            "jpgImage": "/assets/jpg/HQ parte 3.jpg",
+            "miniImage": "/assets/mini/HQ parte 3.jpg"
         },
         {
             "id": "ihqpt4",
@@ -857,7 +885,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/HQ parte 4.png",
-            "miniImage": "/assets/png/HQ parte 4.png"
+            "jpgImage": "/assets/jpg/HQ parte 4.jpg",
+            "miniImage": "/assets/mini/HQ parte 4.jpg"
         },
         {
             "id": "i0704",
@@ -887,7 +916,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/704 Sem Título.png",
-            "miniImage": "/assets/png/704 Sem Título.png"
+            "jpgImage": "/assets/jpg/704 Sem Título.jpg",
+            "miniImage": "/assets/mini/704 Sem Título.jpg"
         },
         {
             "id": "i0705",
@@ -917,7 +947,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/705 Sem Título.png",
-            "miniImage": "/assets/png/705 Sem Título.png"
+            "jpgImage": "/assets/jpg/705 Sem Título.jpg",
+            "miniImage": "/assets/mini/705 Sem Título.jpg"
         },
         {
             "id": "i0710",
@@ -948,7 +979,8 @@
                 "mp4Save": false
             },
             "pngImage": "/assets/png/710 Sem Título.png",
-            "miniImage": "/assets/png/710 Sem Título.png"
+            "jpgImage": "/assets/jpg/710 Sem Título.jpg",
+            "miniImage": "/assets/mini/710 Sem Título.jpg"
         },
         {
             "id": "i0698",
@@ -979,7 +1011,7 @@
             },
             "pngImage": "/assets/png/698 Sem Título.png",
             "jpgImage": "/assets/jpg/698 Sem Título.jpg",
-            "miniImage": "/assets/mini/698 Sem Título.webp",
+            "miniImage": "/assets/mini/698 Sem Título.jpg",
             "appVersion": "ver.12.2.11"
         },
         {
@@ -1012,7 +1044,7 @@
             },
             "pngImage": "/assets/png/699 Sem Título.png",
             "jpgImage": "/assets/jpg/699 Sem Título.jpg",
-            "miniImage": "/assets/mini/699 Sem Título.webp",
+            "miniImage": "/assets/mini/699 Sem Título.jpg",
             "appVersion": "ver.12.2.11"
         },
         {
@@ -1045,7 +1077,7 @@
             },
             "pngImage": "/assets/png/700 Sem Título.png",
             "jpgImage": "/assets/jpg/700 Sem Título.jpg",
-            "miniImage": "/assets/mini/700 Sem Título.webp",
+            "miniImage": "/assets/mini/700 Sem Título.jpg",
             "appVersion": "ver.12.2.11"
         },
         {
@@ -1078,7 +1110,7 @@
             },
             "pngImage": "/assets/png/701 Sem Título.png",
             "jpgImage": "/assets/jpg/701 Sem Título.jpg",
-            "miniImage": "/assets/mini/701 Sem Título.webp",
+            "miniImage": "/assets/mini/701 Sem Título.jpg",
             "appVersion": "ver.12.2.11"
         },
         {
@@ -1111,7 +1143,7 @@
             },
             "pngImage": "/assets/png/702 Sem Título.png",
             "jpgImage": "/assets/jpg/702 Sem Título.jpg",
-            "miniImage": "/assets/mini/702 Sem Título.webp",
+            "miniImage": "/assets/mini/702 Sem Título.jpg",
             "appVersion": "ver.12.2.11"
         },
         {
@@ -1143,7 +1175,7 @@
             },
             "pngImage": "/assets/png/619 Sem Título.png",
             "jpgImage": "/assets/jpg/619 Sem Título.jpg",
-            "miniImage": "/assets/mini/619 Sem Título.webp",
+            "miniImage": "/assets/mini/619 Sem Título.jpg",
             "appVersion": "ver.11.2.2"
         },
         {
@@ -1175,7 +1207,7 @@
             },
             "pngImage": "/assets/png/620 Sem Título.png",
             "jpgImage": "/assets/jpg/620 Sem Título.jpg",
-            "miniImage": "/assets/mini/620 Sem Título.webp",
+            "miniImage": "/assets/mini/620 Sem Título.jpg",
             "appVersion": "ver.11.2.2"
         },
         {
@@ -1208,7 +1240,7 @@
             },
             "pngImage": "/assets/png/623 Sem Título.png",
             "jpgImage": "/assets/jpg/623 Sem Título.jpg",
-            "miniImage": "/assets/mini/623 Sem Título.webp",
+            "miniImage": "/assets/mini/623 Sem Título.jpg",
             "appVersion": "ver.11.2.2"
         },
         {
@@ -1240,7 +1272,7 @@
             },
             "pngImage": "/assets/png/568 Sem Título.png",
             "jpgImage": "/assets/jpg/568 Sem Título.jpg",
-            "miniImage": "/assets/mini/568 Sem Título.webp",
+            "miniImage": "/assets/mini/568 Sem Título.jpg",
             "appVersion": "ver.11.0.0"
         },
         {
@@ -1269,7 +1301,7 @@
             },
             "pngImage": "/assets/png/593 Sem Título.png",
             "jpgImage": "/assets/jpg/593 Sem Título.jpg",
-            "miniImage": "/assets/mini/593 Sem Título.webp",
+            "miniImage": "/assets/mini/593 Sem Título.jpg",
             "appVersion": "ver.11.0.5"
         },
         {
@@ -1301,7 +1333,7 @@
             },
             "pngImage": "/assets/png/596 Sem Título.png",
             "jpgImage": "/assets/jpg/596 Sem Título.jpg",
-            "miniImage": "/assets/mini/596 Sem Título.webp",
+            "miniImage": "/assets/mini/596 Sem Título.jpg",
             "appVersion": "ver.11.0.5"
         }
     ]

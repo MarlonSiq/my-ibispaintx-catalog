@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de ilustração</title>
+    <style>
+        :root { color-scheme: light dark; font-family: Inter, system-ui, sans-serif; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 32px 16px; background: Canvas; color: CanvasText; }
+        main { width: min(900px, 100%); margin: auto; }
+        h1 { margin: 0 0 8px; font-size: 1.8rem; }
+        .intro { opacity: .75; margin: 0 0 28px; line-height: 1.5; }
+        form { display: grid; gap: 22px; }
+        fieldset { border: 1px solid color-mix(in srgb, CanvasText 22%, transparent); border-radius: 12px; padding: 18px; min-width: 0; }
+        legend { padding: 0 8px; font-weight: 700; }
+        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .field { display: grid; gap: 6px; min-width: 0; }
+        .full { grid-column: 1 / -1; }
+        label { font-size: .9rem; font-weight: 600; }
+        input, textarea, select { width: 100%; padding: 11px 12px; border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); border-radius: 8px; background: Canvas; color: CanvasText; font: inherit; }
+        input[type="checkbox"] { width: auto; }
+        input[type="file"] { padding: 9px; }
+        textarea { min-height: 88px; resize: vertical; }
+        .checks { display: flex; flex-wrap: wrap; gap: 18px; }
+        .check { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        button { border: 0; border-radius: 8px; padding: 11px 16px; font: inherit; font-weight: 700; cursor: pointer; }
+        button:disabled { opacity: .45; cursor: not-allowed; }
+        .primary { background: #2563eb; color: white; }
+        .secondary { background: color-mix(in srgb, CanvasText 12%, Canvas); color: CanvasText; }
+        pre { padding: 18px; border-radius: 10px; overflow: auto; background: color-mix(in srgb, CanvasText 7%, Canvas); border: 1px solid color-mix(in srgb, CanvasText 18%, transparent); white-space: pre-wrap; overflow-wrap: anywhere; }
+        .hint, #message { font-size: .88rem; opacity: .75; line-height: 1.5; }
+        #message { min-height: 1.2em; }
+        .import-box { padding: 16px; border: 1px dashed color-mix(in srgb, CanvasText 35%, transparent); border-radius: 12px; display: grid; gap: 12px; }
+        .canvas-grid { display: grid; grid-template-columns: 1fr 1fr auto 1fr; gap: 14px; align-items: end; }
+        @media (max-width: 600px) { .grid, .canvas-grid { grid-template-columns: 1fr; } .full { grid-column: auto; } body { padding-top: 22px; } }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Cadastro de ilustração</h1>
+    <p class="intro">Importe um arquivo IPV para preencher automaticamente os metadados disponíveis. Depois complete os campos manuais e gere o objeto para o array <code>illustrations</code> do seu JSON.</p>
+
+    <section class="import-box" aria-label="Importar arquivo IPV">
+        <strong>Importar projeto do ibisPaint</strong>
+        <div class="field">
+            <label for="ipvFile">Arquivo .ipv</label>
+            <input id="ipvFile" type="file" accept=".ipv,application/octet-stream">
+        </div>
+        <p class="hint">A leitura acontece localmente no navegador. O arquivo não é enviado para um servidor e não é apagado.</p>
+        <p id="importMessage" class="hint" aria-live="polite">Selecione um arquivo IPV para preencher os dados reconhecidos.</p>
+    </section>
+
+    <form id="artForm">
+        <fieldset>
+            <legend>Informações principais</legend>
+            <div class="grid">
+                <div class="field"><label for="id">ID do acervo</label><input id="id" required placeholder="i33"></div>
+                <div class="field"><label for="idApp">ID do ibisPaint</label><input id="idApp" placeholder="Preenchido pelo IPV"></div>
+                <div class="field"><label for="slug">Slug</label><input id="slug" placeholder="694-sem-titulo"></div>
+                <div class="field"><label for="title">Título</label><input id="title" required placeholder="Estudo de personagem" value="Sem Título"></div>
+                <div class="field"><label for="appVersion">Versão do aplicativo</label><input id="appVersion" placeholder="12.2.11"></div>
+                <div class="field"><label for="category">Categoria</label><input id="category" placeholder="personagem"></div>
+                <div class="field full"><label for="description">Descrição</label><textarea id="description" placeholder="Conte um pouco sobre a ilustração..."></textarea></div>
+                <div class="field full"><label for="tags">Tags</label><input id="tags" placeholder="original, digital, estudo"><span class="hint">Separe as tags por vírgula.</span></div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datas e produção</legend>
+            <div class="grid">
+                <div class="field"><label for="createDate">Data de criação</label><input id="createDate" type="datetime-local"></div>
+                <div class="field"><label for="updateDate">Data de atualização</label><input id="updateDate" type="datetime-local"></div>
+                <div class="field"><label for="time">Tempo de produção (minutos)</label><input id="time" type="number" min="0" step="1" placeholder="180"></div>
+                <div class="field"><label for="fileSize">Tamanho do arquivo (MB)</label><input id="fileSize" type="number" min="0" step="0.01" placeholder="24.5"></div>
+            </div>
+            <p class="hint">O tempo extraído do IPV é convertido de segundos para minutos e arredondado para o minuto mais próximo.</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Dimensões da tela</legend>
+            <div class="canvas-grid">
+                <div class="field"><label for="width">Largura</label><input id="width" type="number" min="1" step="1" placeholder="2000"></div>
+                <div class="field"><label for="height">Altura</label><input id="height" type="number" min="1" step="1" placeholder="2000"></div>
+                <button type="button" id="swapDimensions" class="secondary" title="Inverter Largura e Altura" style="height: 44px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center;">⇄</button>
+                <div class="field"><label for="unit">Unidade</label><select id="unit"><option value="px">px</option><option value="cm">cm</option><option value="mm">mm</option></select></div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Arquivos salvos</legend>
+            <div class="checks">
+                <label class="check"><input id="pngSave" type="checkbox" checked> PNG</label>
+                <label class="check"><input id="jpegSave" type="checkbox" checked> JPEG</label>
+                <label class="check"><input id="psdSave" type="checkbox"> PSD</label>
+                <label class="check"><input id="ipvSave" type="checkbox"> IPV</label>
+                <label class="check"><input id="mp4Save" type="checkbox"> MP4</label>
+            </div>
+            <p class="hint">A existência de PNG, JPEG, PSD ou MP4 não pode ser confirmada apenas pelo IPV. Marque somente os formatos que você realmente salvou. Ao importar um IPV, a opção IPV será marcada automaticamente.</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Imagens do acervo</legend>
+            <div class="grid">
+                <div class="field"><label for="pngImage">Imagem PNG</label><input id="pngImage" placeholder="/assets/png/694 Sem Título.png"></div>
+                <div class="field"><label for="jpgImage">Imagem JPG</label><input id="jpgImage" placeholder="/assets/jpg/694 Sem Título.jpg"></div>
+                <div class="field full"><label for="miniImage">Miniatura WEBP</label><input id="miniImage" placeholder="/assets/mini/694 Sem Título.webp"></div>
+            </div>
+        </fieldset>
+
+        <div class="actions">
+            <button class="primary" type="submit">Gerar objeto JSON</button>
+            <button class="secondary" type="reset">Limpar formulário</button>
+        </div>
+    </form>
+
+    <section aria-live="polite">
+        <h2>Resultado</h2>
+        <p class="hint">O resultado contém somente o objeto da ilustração, sem o array externo.</p>
+        <pre id="output">{ }</pre>
+        <div class="actions"><button class="primary" id="copyBtn" type="button" disabled>Copiar objeto</button></div>
+        <p id="message"></p>
+    </section>
+</main>
+
+<!-- Coloque ipv-core.js na mesma pasta deste HTML. -->
+<script src="./ipv-core.js"></script>
+<script>
+    const form = document.getElementById('artForm');
+    const output = document.getElementById('output');
+    const copyBtn = document.getElementById('copyBtn');
+    const message = document.getElementById('message');
+    const importMessage = document.getElementById('importMessage');
+    const ipvFile = document.getElementById('ipvFile');
+    const idInput = document.getElementById('id');
+    const slugInput = document.getElementById('slug');
+    const titleInput = document.getElementById('title');
+    const pngImageInput = document.getElementById('pngImage');
+    const jpgImageInput = document.getElementById('jpgImage');
+    const miniImageInput = document.getElementById('miniImage');
+    const swapBtn = document.getElementById('swapDimensions');
+    const widthInput = document.getElementById('width');
+    const heightInput = document.getElementById('height');
+
+    let generated = '';
+
+    // Flags para controle de edição manual
+    let userEditedSlug = false;
+    let userEditedPng = false;
+    let userEditedJpg = false;
+    let userEditedMini = false;
+
+    const value = id => document.getElementById(id).value.trim();
+    const numberOrNull = id => value(id) === '' ? null : Number(value(id));
+
+    function generateSlug(title) {
+        return title.trim().toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+    }
+
+    // Extrai o número inicial do ID do acervo (ex: "694" de "694", "694-abc" ou vazio)
+    function extractNumericId(idStr) {
+        const match = idStr.match(/^\d+/);
+        return match ? match[0] : '';
+    }
+
+    // Atualiza dinamicamente slug e caminhos das imagens baseados apenas no ID (número inicial) e Título
+    function updateDerivedFields(isManualTitleChange = false) {
+        const rawId = idInput.value.trim();
+        const numId = extractNumericId(rawId);
+        const titleVal = titleInput.value.trim() || 'Sem Título';
+        const slugBase = generateSlug(titleVal);
+
+        // 1. Slug automático: [Número do ID]-[Título em slug] ou apenas [Título em slug] se não houver número
+        const expectedSlug = numId ? `${numId}-${slugBase}` : slugBase;
+        if (!userEditedSlug || isManualTitleChange) {
+            slugInput.value = expectedSlug;
+        }
+
+        // 2. Caminhos automáticos de imagem: /assets/[pasta]/[Número do ID] [Título].[ext] ou [Título].[ext]
+        const imgPrefix = numId ? `${numId} ` : '';
+        const imgName = `${imgPrefix}${titleVal}`;
+
+        if (!userEditedPng || isManualTitleChange) {
+            pngImageInput.value = `/assets/png/${imgName}.png`;
+        }
+        if (!userEditedJpg || isManualTitleChange) {
+            jpgImageInput.value = `/assets/jpg/${imgName}.jpg`;
+        }
+        if (!userEditedMini || isManualTitleChange) {
+            miniImageInput.value = `/assets/mini/${imgName}.webp`;
+        }
+    }
+
+    // Eventos de escuta para detecção de edições manuais
+    slugInput.addEventListener('input', () => { userEditedSlug = true; });
+    pngImageInput.addEventListener('input', () => { userEditedPng = true; });
+    jpgImageInput.addEventListener('input', () => { userEditedJpg = true; });
+    miniImageInput.addEventListener('input', () => { userEditedMini = true; });
+
+    titleInput.addEventListener('input', () => {
+        updateDerivedFields(true);
+    });
+
+    idInput.addEventListener('input', () => {
+        updateDerivedFields(false);
+    });
+
+    // Botão para trocar largura (w) e altura (h)
+    swapBtn.addEventListener('click', () => {
+        const temp = widthInput.value;
+        widthInput.value = heightInput.value;
+        heightInput.value = temp;
+        saveForm();
+    });
+
+    // Converte timestamp Unix (segundos) para o formato local exigido por datetime-local.
+    function timestampToLocalInput(timestamp) {
+        if (timestamp === undefined || timestamp === null || !Number.isFinite(Number(timestamp)) || Number(timestamp) <= 0) return '';
+        const date = new Date(Number(timestamp) * 1000);
+        const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+        return local.toISOString().slice(0, 16);
+    }
+
+    function setField(id, newValue) {
+        const element = document.getElementById(id);
+        if (!element || newValue === undefined || newValue === null || newValue === '') return;
+        element.value = newValue;
+    }
+
+    ipvFile.addEventListener('change', async () => {
+        const file = ipvFile.files?.[0];
+        if (!file) return;
+
+        if (!window.IPV || typeof IPV.readProject !== 'function') {
+            importMessage.textContent = 'Não encontrei ipv-core.js. Baixe esse arquivo do repositório indicado e coloque-o na mesma pasta deste HTML.';
+            return;
+        }
+
+        importMessage.textContent = 'Lendo o projeto IPV...';
+
+        try {
+            const bytes = new Uint8Array(await file.arrayBuffer());
+            const project = IPV.readProject(bytes);
+
+            setField('idApp', project.projectId);
+            setField('title', project.title);
+            setField('appVersion', project.app?.version);
+            setField('createDate', timestampToLocalInput(project.created));
+            setField('updateDate', timestampToLocalInput(project.footer?.t1 || project.created));
+            setField('time', Math.round(Number(project.footer?.seconds || 0) / 60));
+            setField('fileSize', (file.size / (1024 * 1024)).toFixed(2));
+            setField('width', project.canvas?.w);
+            setField('height', project.canvas?.h);
+
+            // Reseta as flags manuais para atualizar os campos derivados com base no arquivo importado
+            userEditedSlug = false;
+            userEditedPng = false;
+            userEditedJpg = false;
+            userEditedMini = false;
+            updateDerivedFields(true);
+
+            document.getElementById('ipvSave').checked = true;
+
+            // Atualiza o armazenamento local com os campos recém-preenchidos.
+            saveForm();
+
+            const layerCount = project.stack?.length ?? project.layers?.length ?? 'não identificado';
+            importMessage.textContent =
+                `Importação concluída: ${project.title || file.name}. ` +
+                `${layerCount} itens na pilha de camadas. Confira os campos antes de gerar o JSON.`;
+            message.textContent = 'Metadados IPV preenchidos. Complete os campos que faltam.';
+        } catch (error) {
+            console.error(error);
+            importMessage.textContent = 'Não foi possível interpretar este IPV. Confira se o arquivo está íntegro e se a versão do leitor é compatível.';
+        }
+    });
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const title = value('title');
+        const illustration = {
+            id: value('id'),
+            idApp: value('idApp'),
+            slug: value('slug') || generateSlug(title),
+            title,
+            description: value('description'),
+            category: value('category'),
+            tags: value('tags').split(',').map(tag => tag.trim()).filter(Boolean),
+            createDate: value('createDate'),
+            updateDate: value('updateDate'),
+            time: numberOrNull('time'),
+            fileSize: numberOrNull('fileSize'),
+            canvasSize: {
+                w: numberOrNull('width'),
+                h: numberOrNull('height'),
+                unit: value('unit')
+            },
+            files: {
+                pngSave: document.getElementById('pngSave').checked,
+                jpegSave: document.getElementById('jpegSave').checked,
+                psdSave: document.getElementById('psdSave').checked,
+                ipvSave: document.getElementById('ipvSave').checked,
+                mp4Save: document.getElementById('mp4Save').checked
+            },
+            pngImage: value('pngImage'),
+            jpgImage: value('jpgImage'),
+            miniImage: value('miniImage'),
+            appVersion: value('appVersion')
+        };
+
+        generated = JSON.stringify(illustration, null, 2);
+        output.textContent = generated;
+        copyBtn.disabled = false;
+        message.textContent = 'Objeto gerado. Revise os dados antes de copiar.';
+    });
+
+    copyBtn.addEventListener('click', async () => {
+        if (!generated) return;
+        try {
+            await navigator.clipboard.writeText(generated);
+            message.textContent = 'Objeto copiado para a área de transferência.';
+        } catch {
+            message.textContent = 'Não foi possível copiar automaticamente. Selecione e copie o texto do resultado.';
+        }
+    });
+
+    function saveForm() {
+        const formData = {
+            userEditedSlug,
+            userEditedPng,
+            userEditedJpg,
+            userEditedMini
+        };
+        form.querySelectorAll('input:not([type="file"]), textarea, select').forEach(input => {
+            formData[input.id] = input.type === 'checkbox' ? input.checked : input.value;
+        });
+        localStorage.setItem('illustrationForm', JSON.stringify(formData));
+    }
+
+    function loadForm() {
+        const savedData = localStorage.getItem('illustrationForm');
+        if (!savedData) return;
+        try {
+            const formData = JSON.parse(savedData);
+            userEditedSlug = !!formData.userEditedSlug;
+            userEditedPng = !!formData.userEditedPng;
+            userEditedJpg = !!formData.userEditedJpg;
+            userEditedMini = !!formData.userEditedMini;
+
+            Object.entries(formData).forEach(([id, savedValue]) => {
+                if (['userEditedSlug', 'userEditedPng', 'userEditedJpg', 'userEditedMini'].includes(id)) return;
+                const input = document.getElementById(id);
+                if (!input) return;
+                if (input.type === 'checkbox') input.checked = savedValue;
+                else input.value = savedValue;
+            });
+        } catch {
+            localStorage.removeItem('illustrationForm');
+        }
+    }
+
+    form.addEventListener('input', saveForm);
+    form.addEventListener('change', saveForm);
+
+    form.addEventListener('reset', () => {
+        generated = '';
+        output.textContent = '{ }';
+        copyBtn.disabled = true;
+        message.textContent = '';
+        importMessage.textContent = 'Selecione um arquivo IPV para preencher os dados reconhecidos.';
+        ipvFile.value = '';
+        userEditedSlug = false;
+        userEditedPng = false;
+        userEditedJpg = false;
+        userEditedMini = false;
+        localStorage.removeItem('illustrationForm');
+    });
+
+    loadForm();
+</script>
+</body>
+</html>
