@@ -27,7 +27,8 @@
                 "ipvSave": true,
                 "mp4Save": true
             },
-            "pngImage": "/assets/png/10 Sem Título2.png"
+            "pngImage": "/assets/png/10 Sem Título2.png",
+            "miniImage": "/assets/png/10 Sem Título2.png"
         },
         {
             "id": "i0014",
@@ -56,7 +57,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/14 Sem Título2.png"
+            "pngImage": "/assets/png/14 Sem Título2.png",
+            "miniImage": "/assets/png/14 Sem Título2.png"
         },
         {
             "id": "i0034",
@@ -86,7 +88,8 @@
                 "ipvSave": false,
                 "mp4Save": true
             },
-            "pngImage": "34 Sem Título.png"
+            "pngImage": "34 Sem Título.png",
+            "miniImage": "34 Sem Título.png"
         },
         {
             "id": "i0041",
@@ -115,7 +118,8 @@
                 "ipvSave": false,
                 "mp4Save": true
             },
-            "pngImage": "/assets/png/41 Sem Título.png"
+            "pngImage": "/assets/png/41 Sem Título.png",
+            "miniImage": "/assets/png/41 Sem Título.png"
         },
         {
             "id": "i0136",
@@ -144,7 +148,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/136 Sem Título2.png"
+            "pngImage": "/assets/png/136 Sem Título2.png",
+            "miniImage": "/assets/png/136 Sem Título2.png"
         },
         {
             "id": "i0141",
@@ -172,7 +177,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/141 Sem Título2.png"
+            "pngImage": "/assets/png/141 Sem Título2.png",
+            "miniImage": "/assets/png/141 Sem Título2.png"
         },
         {
             "id": "i0153",
@@ -199,7 +205,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/153 Sem Título2.png"
+            "pngImage": "/assets/png/153 Sem Título2.png",
+            "miniImage": "/assets/png/153 Sem Título2.png"
         },
         {
             "id": "i0164",
@@ -226,7 +233,8 @@
                 "ipvSave": false,
                 "mp4Save": true
             },
-            "pngImage": "/assets/png/164 Sem Título.png"
+            "pngImage": "/assets/png/164 Sem Título.png",
+            "miniImage": "/assets/png/164 Sem Título.png"
         },
         {
             "id": "i0168",
@@ -253,7 +261,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/168 Sem Título.png"
+            "pngImage": "/assets/png/168 Sem Título.png",
+            "miniImage": "/assets/png/168 Sem Título.png"
         },
         {
             "id": "i0175",
@@ -283,7 +292,8 @@
                 "ipvSave": false,
                 "mp4Save": true
             },
-            "pngImage": "/assets/png/175 Sem Título2.png"
+            "pngImage": "/assets/png/175 Sem Título2.png",
+            "miniImage": "/assets/png/175 Sem Título2.png"
         },
         {
             "id": "i0177",
@@ -310,7 +320,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/177 Sem Título.png"
+            "pngImage": "/assets/png/177 Sem Título.png",
+            "miniImage": "/assets/png/177 Sem Título.png"
         },
         {
             "id": "i0178",
@@ -338,7 +349,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/178 Sem Título.png"
+            "pngImage": "/assets/png/178 Sem Título.png",
+            "miniImage": "/assets/png/178 Sem Título.png"
         },
         {
             "id": "i0260",
@@ -367,7 +379,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/260 Sem Título3.png"
+            "pngImage": "/assets/png/260 Sem Título3.png",
+            "miniImage": "/assets/png/260 Sem Título3.png"
         },
         {
             "id": "i0285",
@@ -395,7 +408,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/285 Sem Título.png"
+            "pngImage": "/assets/png/285 Sem Título.png",
+            "miniImage": "/assets/png/285 Sem Título.png"
         },
         {
             "id": "i0291",
@@ -424,7 +438,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/291 Sem Título.png"
+            "pngImage": "/assets/png/291 Sem Título.png",
+            "miniImage": "/assets/png/291 Sem Título.png"
         },
         {
             "id": "i0463",
@@ -453,7 +468,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/463 Sem Título.png"
+            "pngImage": "/assets/png/463 Sem Título.png",
+            "miniImage": "/assets/png/463 Sem Título.png"
         },
         {
             "id": "i0545",
@@ -482,7 +498,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/545 Sem Título2.png"
+            "pngImage": "/assets/png/545 Sem Título2.png",
+            "miniImage": "/assets/png/545 Sem Título2.png"
         },
         {
             "id": "ismb",
@@ -511,7 +528,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/Super Mário Bros.png"
+            "pngImage": "/assets/png/Super Mário Bros.png",
+            "miniImage": "/assets/png/Super Mário Bros.png"
         },
         {
             "id": "i0489",
@@ -540,7 +558,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/489 Sem Título.png"
+            "pngImage": "/assets/png/489 Sem Título.png",
+            "miniImage": "/assets/png/489 Sem Título.png"
         },
         {
             "id": "i0493",
@@ -569,7 +588,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/493 Sem Título.png"
+            "pngImage": "/assets/png/493 Sem Título.png",
+            "miniImage": "/assets/png/493 Sem Título.png"
         },
         {
             "id": "i0440",
@@ -598,7 +618,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/440 Sem Título.png"
+            "pngImage": "/assets/png/440 Sem Título.png",
+            "miniImage": "/assets/png/440 Sem Título.png"
         },
         {
             "id": "i0414",
@@ -628,7 +649,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/414 Sem Título.png"
+            "pngImage": "/assets/png/414 Sem Título.png",
+            "miniImage": "/assets/png/414 Sem Título.png"
         },
         {
             "id": "i0431",
@@ -656,7 +678,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/431 Sem Título.png"
+            "pngImage": "/assets/png/431 Sem Título.png",
+            "miniImage": "/assets/png/431 Sem Título.png"
         },
         {
             "id": "i0424",
@@ -684,7 +707,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/424 Sem Título.png"
+            "pngImage": "/assets/png/424 Sem Título.png",
+            "miniImage": "/assets/png/424 Sem Título.png"
         },
         {
             "id": "i0309",
@@ -712,7 +736,8 @@
                 "ipvSave": false,
                 "mp4Save": true
             },
-            "pngImage": "/assets/png/309 Sem Título2.png"
+            "pngImage": "/assets/png/309 Sem Título2.png",
+            "miniImage": "/assets/png/309 Sem Título2.png"
         },
         {
             "id": "ihqpt1",
@@ -741,7 +766,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/HQ parte 1.png"
+            "pngImage": "/assets/png/HQ parte 1.png",
+            "miniImage": "/assets/png/HQ parte 1.png"
         },
         {
             "id": "ihqpt2",
@@ -770,7 +796,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/HQ parte 2.png"
+            "pngImage": "/assets/png/HQ parte 2.png",
+            "miniImage": "/assets/png/HQ parte 2.png"
         },
         {
             "id": "ihqpt3",
@@ -799,7 +826,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/HQ parte 3.png"
+            "pngImage": "/assets/png/HQ parte 3.png",
+            "miniImage": "/assets/png/HQ parte 3.png"
         },
         {
             "id": "ihqpt4",
@@ -828,7 +856,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/HQ parte 4.png"
+            "pngImage": "/assets/png/HQ parte 4.png",
+            "miniImage": "/assets/png/HQ parte 4.png"
         },
         {
             "id": "i0704",
@@ -857,7 +886,8 @@
                 "ipvSave": true,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/704 Sem Título.png"
+            "pngImage": "/assets/png/704 Sem Título.png",
+            "miniImage": "/assets/png/704 Sem Título.png"
         },
         {
             "id": "i0705",
@@ -886,7 +916,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/705 Sem Título.png"
+            "pngImage": "/assets/png/705 Sem Título.png",
+            "miniImage": "/assets/png/705 Sem Título.png"
         },
         {
             "id": "i0710",
@@ -916,7 +947,8 @@
                 "ipvSave": false,
                 "mp4Save": false
             },
-            "pngImage": "/assets/png/710 Sem Título.png"
+            "pngImage": "/assets/png/710 Sem Título.png",
+            "miniImage": "/assets/png/710 Sem Título.png"
         },
         {
             "id": "i0698",
