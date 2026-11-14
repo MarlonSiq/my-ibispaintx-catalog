@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de ilustração</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: Inter, system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px 16px;
+            background: Canvas;
+            color: CanvasText;
+        }
+
+        main {
+            width: min(900px, 100%);
+            margin: auto;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 1.8rem;
+        }
+
+        .intro {
+            opacity: .75;
+            margin: 0 0 28px;
+            line-height: 1.5;
+        }
+
+        form {
+            display: grid;
+            gap: 22px;
+        }
+
+        fieldset {
+            border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+            border-radius: 12px;
+            padding: 18px;
+            min-width: 0;
+        }
+
+        legend {
+            padding: 0 8px;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .field {
+            display: grid;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid color-mix(in srgb, CanvasText 25%, transparent);
+            border-radius: 8px;
+            background: Canvas;
+            color: CanvasText;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 88px;
+            resize: vertical;
+        }
+
+        .checks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .check {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .check input {
+            width: auto;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 8px;
+            padding: 11px 16px;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .secondary {
+            background: color-mix(in srgb, CanvasText 12%, Canvas);
+            color: CanvasText;
+        }
+
+        pre {
+            padding: 18px;
+            border-radius: 10px;
+            overflow: auto;
+            background: color-mix(in srgb, CanvasText 7%, Canvas);
+            border: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .hint,
+        #message {
+            font-size: .88rem;
+            opacity: .75;
+        }
+
+        #message {
+            min-height: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            body {
+                padding-top: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Cadastro de ilustração</h1>
+        <p class="intro">Preencha os dados e gere um único objeto <code>{...}</code>, pronto para inserir dentro do
+            array <code>"illustrations": []</code> do seu JSON.</p>
+
+        <form id="artForm">
+            <fieldset>
+                <legend>Informações principais</legend>
+                <div class="grid">
+                    <div class="field"><label for="id">ID</label><input id="id" required placeholder="ill-0001"></div>
+                    <div class="field"><label for="slug">Slug</label><input id="slug"
+                            placeholder="personagem-estudo-2026"></div>
+                    <div class="field"><label for="title">Título</label><input id="title" required
+                            placeholder="Estudo de personagem" value="Sem Título"></div>
+                    <div class="field"><label for="category">Categoria</label><input id="category"
+                            placeholder="personagem"></div>
+                    <div class="field full"><label for="description">Descrição</label><textarea id="description"
+                            placeholder="Conte um pouco sobre a ilustração..."></textarea></div>
+                    <div class="field full"><label for="tags">Tags</label><input id="tags"
+                            placeholder="original, digital, estudo"><span class="hint">Separe as tags por
+                            vírgula.</span></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datas e produção</legend>
+                <div class="grid">
+                    <div class="field"><label for="createDate">Data de criação</label><input id="createDate"
+                            type="datetime-local"></div>
+                    <div class="field"><label for="updateDate">Data de atualização</label><input id="updateDate"
+                            type="datetime-local"></div>
+                    <div class="field"><label for="time">Tempo de produção (minutos)</label><input id="time"
+                            type="number" min="0" step="1" placeholder="180"></div>
+                    <div class="field"><label for="fileSize">Tamanho do arquivo (MB)</label><input id="fileSize"
+                            type="number" min="0" step="0.01" placeholder="24.5"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dimensões da tela</legend>
+                <div class="grid">
+                    <div class="field"><label for="width">Largura</label><input id="width" type="number" min="1"
+                            step="1" placeholder="2000"></div>
+                    <div class="field"><label for="height">Altura</label><input id="height" type="number" min="1"
+                            step="1" placeholder="2000"></div>
+                    <div class="field"><label for="unit">Unidade</label><select id="unit">
+                            <option value="px">px</option>
+                            <option value="cm">cm</option>
+                            <option value="mm">mm</option>
+                        </select></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Arquivos salvos</legend>
+                <div class="checks">
+                    <label class="check"><input id="pngSave" type="checkbox" checked> PNG</label>
+                    <label class="check"><input id="jpegSave" type="checkbox"> JPEG</label>
+                    <label class="check"><input id="psdSave" type="checkbox"> PSD</label>
+                    <label class="check"><input id="ipvSave" type="checkbox"> IPV</label>
+                    <label class="check"><input id="mp4Save" type="checkbox"> MP4</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Imagem de exibição</legend>
+                <div class="field"><label for="image">Caminho da imagem</label><input id="image"
+                        placeholder="/assets/illustrations/ill-0001.png" value="/assets/png/.png"></div>
+            </fieldset>
+
+            <div class="actions">
+                <button class="primary" type="submit">Gerar objeto JSON</button>
+                <button class="secondary" type="reset">Limpar formulário</button>
+            </div>
+        </form>
+
+        <section aria-live="polite">
+            <h2>Resultado</h2>
+            <p class="hint">O resultado contém somente o objeto da ilustração, sem o array externo.</p>
+            <pre id="output">{ }</pre>
+            <div class="actions">
+                <button class="primary" id="copyBtn" type="button" disabled>Copiar objeto</button>
+            </div>
+            <p id="message"></p>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('artForm');
+        const output = document.getElementById('output');
+        const copyBtn = document.getElementById('copyBtn');
+        const message = document.getElementById('message');
+        let generated = '';
+
+        const value = id => document.getElementById(id).value.trim();
+        const numberOrNull = id => value(id) === '' ? null : Number(value(id));
+        const dateOrEmpty = id => {
+            const raw = value(id);
+            return raw ? raw : '';
+        };
+
+        function generateSlug(title) {
+            return title
+                .trim()
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s-]/g, "")
+                .replace(/\s+/g, "-")
+                .replace(/-+/g, "-");
+        }
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+
+            const illustration = {
+                id: value('id'),
+                slug: generateSlug(value('title')),
+                title: value('title'),
+                description: value('description'),
+                category: value('category'),
+                tags: value('tags').split(',').map(tag => tag.trim()).filter(Boolean),
+                createDate: dateOrEmpty('createDate'),
+                updateDate: dateOrEmpty('updateDate'),
+                time: numberOrNull('time'),
+                fileSize: numberOrNull('fileSize'),
+                canvasSize: {
+                    width: numberOrNull('width'),
+                    height: numberOrNull('height'),
+                    unit: value('unit')
+                },
+                files: {
+                    pngSave: document.getElementById('pngSave').checked,
+                    jpegSave: document.getElementById('jpegSave').checked,
+                    psdSave: document.getElementById('psdSave').checked,
+                    ipvSave: document.getElementById('ipvSave').checked,
+                    mp4Save: document.getElementById('mp4Save').checked
+                },
+                image: value('image')
+            };
+
+            generated = JSON.stringify(illustration, null, 2);
+            output.textContent = generated;
+            copyBtn.disabled = false;
+            message.textContent = 'Objeto gerado. Revise os dados antes de copiar.';
+        });
+
+        copyBtn.addEventListener('click', async () => {
+            if (!generated) return;
+            try {
+                await navigator.clipboard.writeText(generated);
+                message.textContent = 'Objeto copiado para a área de transferência.';
+            } catch {
+                message.textContent = 'Não foi possível copiar automaticamente. Selecione e copie o texto do resultado.';
+            }
+        });
+
+        form.addEventListener('reset', () => {
+            generated = '';
+            output.textContent = '{ }';
+            copyBtn.disabled = true;
+            message.textContent = '';
+            localStorage.removeItem('illustrationForm');
+        });
+
+        // Salvar automaticamente os campos
+        function saveForm() {
+            const formData = {};
+
+            form.querySelectorAll('input, textarea, select').forEach(input => {
+                formData[input.id] = input.type === 'checkbox'
+                    ? input.checked
+                    : input.value;
+            });
+
+            localStorage.setItem('illustrationForm', JSON.stringify(formData));
+        }
+
+        // Recuperar os campos salvos
+        function loadForm() {
+            const savedData = localStorage.getItem('illustrationForm');
+
+            if (!savedData) return;
+
+            const formData = JSON.parse(savedData);
+
+            Object.entries(formData).forEach(([id, savedValue]) => {
+                const input = document.getElementById(id);
+
+                if (!input) return;
+
+                if (input.type === 'checkbox') {
+                    input.checked = savedValue;
+                } else {
+                    input.value = savedValue;
+                }
+            });
+        }
+
+        // Observar alterações
+        form.addEventListener('input', saveForm);
+        form.addEventListener('change', saveForm);
+
+        // Recuperar ao abrir a página
+        loadForm();
+    </script>
+</body>
+
+</html>

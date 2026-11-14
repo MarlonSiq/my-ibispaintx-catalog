@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Ilustrações</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: Inter, system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px 16px;
+            background: Canvas;
+            color: CanvasText;
+        }
+
+        main {
+            width: min(800px, 100%);
+            margin: auto;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 1.8rem;
+        }
+
+        .intro {
+            opacity: .75;
+            margin: 0 0 28px;
+            line-height: 1.5;
+        }
+
+        .list-container {
+            display: grid;
+            gap: 16px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px;
+            border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
+            border-radius: 12px;
+            background: color-mix(in srgb, CanvasText 3%, Canvas);
+        }
+
+        .thumb {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: color-mix(in srgb, CanvasText 10%, Canvas);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            /* opacity: 0.7; */
+            flex-shrink: 0;
+        }
+
+        .info {
+            flex-grow: 1;
+            display: grid;
+            gap: 6px;
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .status-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+
+        .status-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .error-msg {
+            color: #ef4444;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .thumb {
+                width: 100%;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Catálogo de Ilustrações</h1>
+        <p class="intro">Carregando dados diretamente do arquivo <code>data.json</code>...</p>
+
+        <div id="illustrationList" class="list-container">
+            <!-- Os itens serão inseridos aqui via JavaScript -->
+        </div>
+    </main>
+
+    <script>
+        const container = document.getElementById('illustrationList');
+        const introText = document.querySelector('.intro');
+
+        async function loadIllustrations() {
+            try {
+                const response = await fetch('./data.json');
+
+                if (!response.ok) {
+                    throw new Error(`Erro ao carregar o arquivo (Status: ${response.status})`);
+                }
+
+                const data = await response.json();
+                const illustrations = data.illustrations || [];
+
+                if (illustrations.length === 0) {
+                    container.innerHTML = '<p>Nenhuma ilustração encontrada no arquivo JSON.</p>';
+                    introText.textContent = 'O arquivo data.json está vazio.';
+                    return;
+                }
+
+                introText.textContent = `Exibindo ${illustrations.length} ilustrações carregadas de data.json.`;
+                container.innerHTML = '';
+
+                illustrations.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    let thumbHTML = '';
+                    if (item.miniImage && item.miniImage.trim() !== '') {
+                        // Substitui a extensão .webp (ou qualquer outra no final) por .jpg
+                        const jpgMiniPath = item.miniImage.replace(/\.[^/.]+$/, '.jpg');
+
+                        thumbHTML = `<img class="thumb" src="${jpgMiniPath}" alt="${item.title}" onerror="this.onerror=null; this.replaceWith(createPlaceholder());">`;
+                    } else {
+                        thumbHTML = `<div class="thumb">Sem mini</div>`;
+                    }
+
+                    const files = item.files || {};
+                    const formatStatus = [
+                        { label: 'PNG', saved: files.pngSave },
+                        { label: 'JPG', saved: files.jpegSave },
+                        { label: 'PSD', saved: files.psdSave },
+                        { label: 'IPV', saved: files.ipvSave }
+                    ];
+
+                    const statusHTML = formatStatus.map(f => `
+                    <span class="status-item">
+                        <strong>${f.label}:</strong> ${f.saved ? '✅' : '❌'}
+                    </span>
+                `).join('');
+
+                    card.innerHTML = `
+                    ${thumbHTML}
+                    <div class="info">
+                        <h2 class="title">${item.title}</h2>
+                        <div class="status-list">
+                            ${statusHTML}
+                        </div>
+                    </div>
+                `;
+
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error(error);
+                introText.textContent = 'Não foi possível carregar os dados.';
+                container.innerHTML = `<p class="error-msg">Erro ao carregar o arquivo <code>data.json</code>. Certifique-se de que a página está rodando através de um servidor local (como o Live Server no VS Code).</p>`;
+            }
+        }
+
+        function createPlaceholder() {
+            const div = document.createElement('div');
+            div.className = 'thumb';
+            div.textContent = 'Sem foto';
+            return div;
+        }
+
+        loadIllustrations();
+    </script>
+</body>
+
+</html>

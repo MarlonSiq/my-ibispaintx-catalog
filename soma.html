@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armazenamento do Acervo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        main {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .label {
+            color: #777;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h1>Armazenamento do acervo</h1>
+
+        <div class="card">
+            <p class="label">Armazenamento total ocupado</p>
+            <div class="number" id="totalSize">Carregando...</div>
+        </div>
+
+        <div class="card">
+            <p class="label">Quantidade de ilustrações</p>
+            <div class="number" id="totalFiles">0</div>
+        </div>
+
+        <div class="card">
+            <p class="label">Tamanho médio por ilustração</p>
+            <div class="number" id="averageSize">0 MB</div>
+        </div>
+    </main>
+
+    <script>
+        async function loadStorage() {
+            try {
+                const response = await fetch("./data.json");
+
+                if (!response.ok) {
+                    throw new Error("Erro ao carregar data.json");
+                }
+
+                const data = await response.json();
+
+                const illustrations = data.illustrations;
+
+                const totalSize = illustrations.reduce((total, item) => {
+                    return total + (Number(item.fileSize) || 0);
+                }, 0);
+
+                const totalFiles = illustrations.length;
+
+                const averageSize = totalFiles > 0
+                    ? totalSize / totalFiles
+                    : 0;
+
+                document.getElementById("totalSize").textContent =
+                    totalSize.toFixed(2) + " MB";
+
+                document.getElementById("totalFiles").textContent =
+                    totalFiles;
+
+                document.getElementById("averageSize").textContent =
+                    averageSize.toFixed(2) + " MB";
+
+            } catch (error) {
+                console.error(error);
+
+                document.getElementById("totalSize").textContent =
+                    "Erro ao carregar";
+
+                document.getElementById("totalFiles").textContent = "—";
+                document.getElementById("averageSize").textContent = "—";
+            }
+        }
+
+        loadStorage();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{
+    "illustrations": [
+        {
+            "id": "i10",
+            "idApp": "KEMPZY6KNV",
+            "slug": "10-sem-titulo2",
+            "title": "10 Sem Título2",
+            "description": "Ideia de historia em quadrinhos que tive sobre a vida entre animais da floresta.",
+            "category": "história",
+            "tags": [
+                "original",
+                "personagem",
+                "história"
+            ],
+            "createDate": "2021-02-20T23:08",
+            "updateDate": "2021-02-21T01:01",
+            "time": 118,
+            "fileSize": 15.5,
+            "canvasSize": {
+                "w": 1240,
+                "h": 1754,
+                "unit": "px"
+            },
+            "files": {
+                "pngSave": true,
+                "jpegSave": true,
+                "psdSave": true,
+                "ipvSave": true,
+                "mp4Save": true
+            },
+            "pngImage": "/assets/png/10 Sem Título2.png",
+            "jpgImage": "/assets/jpg/10 Sem Título2.jpg",
+            "miniImage": "/assets/mini/10 Sem Título2.webp",
+            "appVersion": "12.2.11"
+        }
+    ]
+}
